@@ -60,7 +60,7 @@ public class UsuarioController {
 
 	
 
-	@RequestMapping(value="/editar/{idUsuario}", method=RequestMethod.GET)
+	@RequestMapping(value="/editar/{idUsuario}", method=RequestMethod.POST)
 	public String edit(@PathVariable("idUsuario") long id){
 		return "EditaUsuarios";
 	
