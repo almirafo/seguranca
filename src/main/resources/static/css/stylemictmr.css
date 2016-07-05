@@ -1,0 +1,28 @@
+.navbar-orange
+{ background-color:#ff8000;
+  border-color:#ff8000};
+  
+.panel-heading {
+   color: #333;
+   background-color: #e29f0f;
+   border-color: #ddd}
+   
+.panel-default{
+	margin-left: 10px;
+	margin-right: 10px;
+}   
+
+.alert {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.aw-link-panel {
+	float: right;
+	padding: 0px;
+}
+
+.aw-titulo-panel {
+	float: left;
+	padding-top: 2px;
+}

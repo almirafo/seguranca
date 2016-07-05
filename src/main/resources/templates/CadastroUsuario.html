@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="LayoutPadrao">
+
+<head>
+	<title>Cadastro de usuário</title>
+</head>
+
+
+
+<section layout:fragment="conteudo">
+<form  class ="form-horizontal" action="/usuario/salvar" method="post">
+
+<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+    		<span th:text="${mensagem}">Usuário salvo com sucesso!!!</span>
+    	</div>
+    	
+<input type="hidden" class="form-control" id="idUsuario" name="idUsuario"/>
+<div class="panel panel-default">
+
+		<div class="panel-heading">
+			<div class="clearfix">
+			     <h1 class="panel-title aw-titulo-panel" th:text="'Novo  ' + #{usuario_titulo} "></h1>
+	   			<a class="btn btn-link aw-link-panel" href="/usuario">Pesquisa usuarios</a>
+	   		</div>
+	   	</div>
+
+
+  <div class="panel-body">
+
+	<div class="form-group">
+	    <label for="nome" class="col-sm-2 control-label">Nome:</label>
+	    <div class="col-sm-4">
+	    	<input type="text" class="form-control" id="nome" name="nome"/>
+	    </div>
+	</div>
+
+
+	<div class="form-group">
+	    <label for="email" class="col-sm-2 control-label">Email:</label>
+	    <div class="col-sm-2">
+	    	<input type="text" class="form-control" id="email" name="email"/>
+	    </div>
+	</div>
+    
+    <div class="form-group">
+	    <label for="senha" class="col-sm-2 control-label">Senha:</label>
+	    <div class="col-sm-2">
+	    	<input type="password" class="form-control" id="senha" name="senha"/>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label for="status" class="col-sm-2 control-label">Status:</label>
+	    <div class="col-sm-2">
+	    	<select id = "status" class="form-control" name="status">
+				<option th:each="status : ${todosStatus}" th:value="${status}" th:text="${status.descricao}"></option>
+	    	</select>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label for="nivel" class="col-sm-2 control-label">Nível:</label>
+	    <div class="col-sm-2">
+	    	<select id = "nivel" class="form-control" name="nivel">
+			<option th:each="nivel : ${todosNiveis}" th:value="${nivel.idNivel}" th:text="${nivel.descricao}"></option>
+	    	</select>
+	    </div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-primary" >Salvar</button>
+			<input type="reset" value="Reset" class="btn btn-reset" />
+		</div>
+	</div>
+	
+	<div class="form-group">
+	
+	</div>
+    
+  </div>
+</div>
+
+
+</form>
+</section>
+</html>
