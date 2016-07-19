@@ -9,6 +9,7 @@
 </head>
 
 <section layout:fragment="conteudo">
+<div layout:include="MensagemGeral"></div>
    <div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="clearfix">
@@ -35,11 +36,21 @@
       				    <td th:text="${usuario.nome}"></td>
       				    <td th:text="${usuario.email}"></td>
       				    <td th:text="${usuario.status}"></td>
-      				    <td></td>
+      				    <td>
+      				    <a class="btn btn-link btn-xs" th:href="@{/usuario/{idUsuario}(idUsuario=${usuario.idUsuario})}">
+	   							<span class="glyphicon glyphicon-pencil"></span>
+	   						</a>
+	   						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
+	   								th:attr="data-codigo=${usuario.idUsuario}, data-descricao=${usuario.nome}">
+	   							<span class="glyphicon glyphicon-remove"></span>
+	   						</a>
+      				    
+      				    
+      				    </td>
       				</tr>
       			
       				<tr>
-      					<td colspan="5">Nenhum usuário encontrado</td>
+      					<td colspan="5" th:if="${#lists.isEmpty(usuarios)}">Nenhum usuario foi encontrado</td>
       				</tr>
       			</tbody>
       		</table>

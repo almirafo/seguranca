@@ -11,13 +11,12 @@
 
 
 <section layout:fragment="conteudo">
-<form  class ="form-horizontal" action="/usuario/salvar" method="post">
+<form  class ="form-horizontal" action="/usuario/salvar" method="post" th:object="${usuario}">
 
-<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
-    		<span th:text="${mensagem}">Usuário salvo com sucesso!!!</span>
-    	</div>
+    <div layout:include="MensagemGeral"></div>
+    <div layout:include="MensagemErro"></div>
     	
-<input type="hidden" class="form-control" id="idUsuario" name="idUsuario"/>
+	<input type="hidden" th:field="*{idUsuario}"/>
 <div class="panel panel-default">
 
 		<div class="panel-heading">
@@ -30,10 +29,10 @@
 
   <div class="panel-body">
 
-	<div class="form-group">
+	<div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error">
 	    <label for="nome" class="col-sm-2 control-label">Nome:</label>
 	    <div class="col-sm-4">
-	    	<input type="text" class="form-control" id="nome" name="nome"/>
+	    	<input type="text" class="form-control" id="nome"  th:field="*{nome}"/>
 	    </div>
 	</div>
 
@@ -41,21 +40,21 @@
 	<div class="form-group">
 	    <label for="email" class="col-sm-2 control-label">Email:</label>
 	    <div class="col-sm-2">
-	    	<input type="text" class="form-control" id="email" name="email"/>
+	    	<input type="text" class="form-control" id="email" th:field="*{email}"/>
 	    </div>
 	</div>
     
     <div class="form-group">
 	    <label for="senha" class="col-sm-2 control-label">Senha:</label>
 	    <div class="col-sm-2">
-	    	<input type="password" class="form-control" id="senha" name="senha"/>
+	    	<input type="password" class="form-control" id="senha"  th:field="*{senha}"/>
 	    </div>
 	</div>
 
 	<div class="form-group">
 	    <label for="status" class="col-sm-2 control-label">Status:</label>
 	    <div class="col-sm-2">
-	    	<select id = "status" class="form-control" name="status">
+	    	<select id = "status" class="form-control" th:field="*{status}">
 				<option th:each="status : ${todosStatus}" th:value="${status}" th:text="${status.descricao}"></option>
 	    	</select>
 	    </div>
@@ -64,7 +63,7 @@
 	<div class="form-group">
 	    <label for="nivel" class="col-sm-2 control-label">Nível:</label>
 	    <div class="col-sm-2">
-	    	<select id = "nivel" class="form-control" name="nivel">
+	    	<select id = "nivel" class="form-control" th:field="*{nivel}">
 			<option th:each="nivel : ${todosNiveis}" th:value="${nivel.idNivel}" th:text="${nivel.descricao}"></option>
 	    	</select>
 	    </div>

@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import com.mictmr.seguranca.enums.Status;
 
@@ -17,14 +18,12 @@ public class Usuario {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long idUsuario;
 
+	@NotNull
 	String nome;
+	
+	@NotNull
 	String email;
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+	
 	@Enumerated(EnumType.STRING)
 	Status status;
 	String senha;
@@ -62,5 +61,12 @@ public class Usuario {
 	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
 	}
-	
+
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 }
