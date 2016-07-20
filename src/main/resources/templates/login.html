@@ -16,7 +16,10 @@
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
+        <div class="panel panel-default">
+         <div class="panel-body al-bg-panel">
         <form  class ="form-horizontal"  th:action="@{/login}" method="post">
+       
        
 	        <div class="form-group">    
 	            <label class="col-sm-2 control-label"> User Name : </label>
@@ -27,10 +30,15 @@
 	        	<div class="col-sm-4"> <input type="password" name="password"/></div> 
 	        </div>
 	   
-	        <div><input type="submit" value="Sign In"/></div>
-        	
+	        <div class="form-group">
+	            <div class="col-sm-offset-2 col-sm-10">
+	        	<input type="submit" class="btn btn-primary" value="Entrar"/>
+	        	</div>
+	        </div>
+      
         
         </form>
-        
+        </div>
+        </div>
     </section>
 </html>

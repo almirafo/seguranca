@@ -36,7 +36,9 @@ public class UsuarioController {
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo(){
-		return new ModelAndView("CadastroUsuario");
+		ModelAndView mv = new ModelAndView(CADASTROUSUARIOVIEW);
+		mv.addObject(new Usuario());
+		return mv;
 	}
 	
 

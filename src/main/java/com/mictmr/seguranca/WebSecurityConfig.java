@@ -24,11 +24,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	protected void configure(HttpSecurity http) throws Exception {
 		
+		
+		
+		
+		
 		http
             .authorizeRequests()
                 .antMatchers( "/home","/css/**","/fonts/**","/images/**","/js/**").permitAll()
                 .antMatchers("/usuario","/usuario/**").hasRole("ADMIN")
-                .antMatchers("/usuario/novo").hasRole("USER")
                 .antMatchers("/register","/register/**").permitAll();
                 
                 /*
