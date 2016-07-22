@@ -11,36 +11,13 @@
 	<title>Controle Geral</title>
 </head>
   <section layout:fragment="conteudo">
-        <div><a th:href="@{/logout}">Logout</a></div>
+  
         
-        <div>
-        <a th:href="@{/usuario}" >Cadastro de usuário</a>
-        </div>
+
         
         
 <div>      
 
-<div th:if="${#httpServletRequest.remoteUser != null}">
-    <p th:text="${#httpServletRequest.remoteUser}">
-      sample_user
-    </p>
-</div>
-
-
-<div th:if="${#httpServletRequest.isUserInRole('ROLE_USER')}">
-    <p th:text="Usuario">
-      sample_user
-    </p>
-</div>
-
-
-<span th:text="${#httpServletRequest.isUserInRole('ROLE_ADMIN')}">Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)</span>
-
-<div th:if="${#httpServletRequest.remoteUser != null}">
-    <p th:text="${#httpServletRequest.remoteUser}">
-      sample_user
-    </p>
-</div>
 
 
 

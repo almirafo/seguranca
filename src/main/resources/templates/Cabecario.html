@@ -7,15 +7,20 @@
 	<nav class="navbar navbar-orange navbar-static-top">
 	  <div class="container-fluid  aw-titulo-panel">
 	    <div class="navbar-header">	
+	    <div class="clearfix">
+		      <a class="navbar-brand" href="#"><img alt="Brand" src="/images/logo-supportcomm.gif"/> </a>
+	          
+		     
+			  <a th:if="${#httpServletRequest.isUserInRole('ROLE_ADMIN')}" class="navbar-brand btn btn-link"  th:href="@{/usuario}" >Cadastro de usuário</a>
+	          <a class="navbar-brand btn btn-link" th:if="${#httpServletRequest.remoteUser == null}" th:href="@{/register}">Registre-se</a>
+		      <a  th:if="${#httpServletRequest.remoteUser != null}" class=" navbar-brand btn btn-link" th:href="@{/logout}">Logout</a>
+		      <label class="aw-link-panel" th:text="${#httpServletRequest.remoteUser}">sample_user</label>
+		  </div>
+	      </div>  
+	   </div>
 	    
-	      <a class="navbar-brand" href="#">
-	        <img alt="Brand" src="/images/logo-supportcomm.gif"/>
-	      </a>
-         <a class="navbar-brand btn btn-link " href="/register">Registre-se</a>
-	      <a class="navbar-brand btn-link navbar-right" th:href="@{/logout}">Logout</a>
-	    </div>
 	     
-	  </div>
+	  
 	</nav>
     
 </html>
