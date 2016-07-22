@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
     layout:decorator="LayoutPadrao">
 
 <head>
@@ -40,5 +42,11 @@
         </form>
         </div>
         </div>
+        <h:outputText value="Lorem ipsum dolor sit amet" rendered="#{sec:areAllGranted('ROLE_ADMIN')}"/>
+        <h1  rendered="false">        
+			<h1>O seu conteúdo de forma fácil,
+			interativa e descontraída
+			</h1>
+		</h1>
     </section>
 </html>

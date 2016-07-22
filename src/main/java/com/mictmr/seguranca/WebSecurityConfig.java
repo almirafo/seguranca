@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
+
 
 @Configuration
 @EnableWebSecurity
@@ -32,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers( "/home","/css/**","/fonts/**","/images/**","/js/**").permitAll()
                 .antMatchers("/usuario","/usuario/**").hasRole("ADMIN")
-                .antMatchers("/register","/register/**").permitAll();
+                .antMatchers("/register","/register/**","/login").permitAll();
                 
                 /*
                  * AQUI PEGA DO BANCO AS AUTORIZAÇÕES E QUE FUNCIONALIDADE PODE ACESSAR
@@ -71,4 +73,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         handler.setUseReferer(true);
         return handler;
     }
+    
+
+    
 }

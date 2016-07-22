@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
+	xmlns:h="http://java.sun.com/jsf/html"
+	
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
     layout:decorator="LayoutPadrao">
 
 <head>
@@ -13,6 +16,50 @@
         <div>
         <a th:href="@{/usuario}" >Cadastro de usuário</a>
         </div>
+        
+        
+<div>      
+
+<div th:if="${#httpServletRequest.remoteUser != null}">
+    <p th:text="${#httpServletRequest.remoteUser}">
+      sample_user
+    </p>
+</div>
+
+
+<div th:if="${#httpServletRequest.isUserInRole('ROLE_USER')}">
+    <p th:text="Usuario">
+      sample_user
+    </p>
+</div>
+
+
+<span th:text="${#httpServletRequest.isUserInRole('ROLE_ADMIN')}">Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)</span>
+
+<div th:if="${#httpServletRequest.remoteUser != null}">
+    <p th:text="${#httpServletRequest.remoteUser}">
+      sample_user
+    </p>
+</div>
+
+
+
+<h1>O seu conteúdo de forma fácil,
+interativa e descontraída
+</h1>
+</div>
+
+<div>
+<h3>
+Soluções que conectam você aos assuntos de seu interesse em qualquer lugar. Receba conteúdos, lembretes e notícias por vídeo, áudio, texto ou imagem e fique sempre atualizado.
+
+Os produtos, desenvolvidos em parceria com os melhores especialistas e influenciadores, podem ser consumidos de diferentes formas: Aplicativos, Internet, SMS, Voz e outros.
+
+Escolha o produto que mais combina com você e transforme sua rotina.
+</h3>    
+</div>        
+        
+        
 </section>
 
 </html>
