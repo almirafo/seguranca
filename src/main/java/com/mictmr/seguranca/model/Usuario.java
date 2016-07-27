@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.mictmr.seguranca.enums.Status;
@@ -27,35 +29,45 @@ public class Usuario {
 	
 	@Enumerated(EnumType.STRING)
 	Status status;
+	
 	String senha;
 	
 	@ManyToOne
 	Nivel nivel;
 
+	
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
 	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
+	
+	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
 	public Status getStatus() {
 		return status;
 	}
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	
+	
 	public Nivel getNivel() {
 		return nivel;
 	}
@@ -63,6 +75,7 @@ public class Usuario {
 		this.nivel = nivel;
 	}
 
+	
 	public String getSenha() {
 		return senha;
 	}

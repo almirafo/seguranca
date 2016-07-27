@@ -4,17 +4,27 @@
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     
+     
 	<nav class="navbar navbar-orange navbar-static-top">
 	  <div class="container-fluid  aw-titulo-panel">
 	    <div class="navbar-header">	
-	    <div class="clearfix">
+	    <div class="nav navbar-nav">
+	    
+	    
 		      <a class="navbar-brand" href="#"><img alt="Brand" src="/images/logo-supportcomm.gif"/> </a>
 	          
-		     
-			  <a th:if="${#httpServletRequest.isUserInRole('ROLE_ADMIN')}" class="navbar-brand btn btn-link"  th:href="@{/usuario}" >Cadastro de usuário</a>
-	          <a class="navbar-brand btn btn-link" th:if="${#httpServletRequest.remoteUser == null}" th:href="@{/register}">Registre-se</a>
-		      <a  th:if="${#httpServletRequest.remoteUser != null}" class=" navbar-brand btn btn-link" th:href="@{/logout}">Logout</a>
-		      <label class="aw-link-panel" th:text="${#httpServletRequest.remoteUser}">sample_user</label>
+		     <li class="nav-item">
+			  <a th:if="${#httpServletRequest.isUserInRole('ROLE_ADMIN')}" class="btn btn-link"  th:href="@{/usuario}" >Cadastro de usuário</a>
+			  </li>
+			  <li class="nav-item">
+	          <a class="btn btn-link" th:if="${#httpServletRequest.remoteUser == null}" th:href="@{/register}">Registre-se</a>
+		      </li>
+		      <li class="nav-item">
+		      <a  th:if="${#httpServletRequest.remoteUser != null}" class="nav-item btn-link" th:href="@{/logout}">Logout</a>
+		      </li>
+		      <form class="form-inline pull-xs-right">
+		      <label class="navbar-brand "  th:text="${#httpServletRequest.remoteUser}">sample_user</label>
+		      </form>
 		  </div>
 	      </div>  
 	   </div>
@@ -22,5 +32,6 @@
 	     
 	  
 	</nav>
+
     
 </html>

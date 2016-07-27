@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +21,7 @@ import com.mictmr.seguranca.model.Nivel;
 import com.mictmr.seguranca.model.Usuario;
 import com.mictmr.seguranca.reposiroty.NivelRepo;
 import com.mictmr.seguranca.reposiroty.UsuarioRepo;
+import com.mictmr.seguranca.service.SecurityService;
 
 @Controller
 @RequestMapping("/usuario")
@@ -32,7 +35,8 @@ public class UsuarioController {
 	@Autowired
 	NivelRepo nivelRepo;
 
-	
+	@Autowired
+	SecurityService securityService;
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo(){
